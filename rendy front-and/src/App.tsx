@@ -4,8 +4,10 @@ import './App.css';
 function App() {
   const [fib, setFib] = useState([0, 1]);
 
+  const calculateNext = (previous: number, current: number) => previous + current;
+
   const nextFib = () => {
-    setFib(([prev, curr]) => [curr, prev + curr]);
+    setFib(([previous, current]) => [current, calculateNext(previous, current)]);
   };
 
   return (
