@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Modern</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <div class="background-decorations">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="app-container">
+    <div class="calculator-card">
+      <!-- Header / Top Bar -->
+      <header class="calculator-header">
+        <div class="brand">
+          <span class="brand-icon">✨</span>
+          <span class="brand-title">Kalkulator</span>
+        </div>
+        <div class="header-actions">
+          <button id="soundToggleBtn" class="icon-btn" title="Aktif/Nonaktifkan Suara" aria-label="Toggle Sound">
+            🔊
+          </button>
+          <button id="themeToggleBtn" class="icon-btn" title="Ganti Tema (Gelap/Terang)" aria-label="Toggle Theme">
+            🌙
+          </button>
+          <button id="historyToggleBtn" class="icon-btn" title="Riwayat Perhitungan" aria-label="Toggle History">
+            📜
+          </button>
+        </div>
+      </header>
+
+      <!-- Display Screen -->
+      <section class="display-container" aria-live="polite">
+        <div id="previousOperand" class="previous-operand"></div>
+        <div id="currentOperand" class="current-operand">0</div>
+      </section>
+
+      <!-- Keypad -->
+      <section class="keypad-grid">
+        <!-- Row 1: Utility & Scientific -->
+        <button type="button" class="btn btn-action" data-action="all-clear">AC</button>
+        <button type="button" class="btn btn-action" data-action="delete">⌫</button>
+        <button type="button" class="btn btn-action" data-action="negate">±</button>
+        <button type="button" class="btn btn-operator" data-operator="÷">÷</button>
+
+        <!-- Row 2 -->
+        <button type="button" class="btn btn-sci" data-action="sqrt">√</button>
+        <button type="button" class="btn btn-sci" data-action="square">x²</button>
+        <button type="button" class="btn btn-operator" data-operator="%">%</button>
+        <button type="button" class="btn btn-operator" data-operator="×">×</button>
+
+        <!-- Row 3: Numbers 7, 8, 9 -->
+        <button type="button" class="btn btn-number" data-number="7">7</button>
+        <button type="button" class="btn btn-number" data-number="8">8</button>
+        <button type="button" class="btn btn-number" data-number="9">9</button>
+        <button type="button" class="btn btn-operator" data-operator="-">−</button>
+
+        <!-- Row 4: Numbers 4, 5, 6 -->
+        <button type="button" class="btn btn-number" data-number="4">4</button>
+        <button type="button" class="btn btn-number" data-number="5">5</button>
+        <button type="button" class="btn btn-number" data-number="6">6</button>
+        <button type="button" class="btn btn-operator" data-operator="+">+</button>
+
+        <!-- Row 5: Numbers 1, 2, 3 -->
+        <button type="button" class="btn btn-number" data-number="1">1</button>
+        <button type="button" class="btn btn-number" data-number="2">2</button>
+        <button type="button" class="btn btn-number" data-number="3">3</button>
+        <button type="button" class="btn btn-equals" data-action="calculate" rowspan="2">=</button>
+
+        <!-- Row 6: 0 and Decimal -->
+        <button type="button" class="btn btn-number btn-zero" data-number="0">0</button>
+        <button type="button" class="btn btn-number" data-number=".">.</button>
+      </section>
+
+      <!-- History Drawer (Pop-out / Drop-down) -->
+      <aside id="historyPanel" class="history-panel hidden">
+        <div class="history-header">
+          <h3>Riwayat Perhitungan</h3>
+          <button id="clearHistoryBtn" class="clear-history-btn" title="Hapus Semua Riwayat">Bersihkan</button>
+        </div>
+        <div id="historyList" class="history-list">
+          <p class="empty-history">Belum ada riwayat perhitungan.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Keyboard Hints -->
+    <footer class="keyboard-hints">
+      <span>💡 <strong>Shortcut Keyboard:</strong> Angka 0-9, <code>+ - * / %</code>, <code>Enter</code> (=), <code>Backspace</code> (Hapus), <code>Esc</code> (AC)</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
